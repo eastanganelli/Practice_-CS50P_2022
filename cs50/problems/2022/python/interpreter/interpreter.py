@@ -1,18 +1,15 @@
 def main():
     x, y, z = input("Expression: ").split(" ")
-    print(calculator(x, y, z))
+    calculator(x, y, z)
 
 def calculator(x, y, z):
     if y == "+":
-        return int(x) + int(z)
+        print(float(x) + float(z))
     elif y == "-":
-        return int(x) - int(z)
+        print(float(x) - float(z))
     elif y == "*":
-        return int(x) * int(z)
-    elif y == "/" and int(z) != 0:
-        return int(x) / int(z)
-    else:
-        return "Invalid operator"
-
+        print(float(x) * float(z))
+    elif y == "/" and float(z) != 0:
+        print(float(x) / float(z))
 
 main()

@@ -9,9 +9,7 @@ def main():
 def get_MIME(mime_):
     if mime_.find(".png") != -1:
         return "image/png"
-    elif mime_.find(".jpeg") != -1:
-        return "image/jpeg"
-    elif mime_.find(".jpg") != -1:
+    elif mime_.find(".jpeg") != -1 or mime_.find(".jpg") != -1:
         return "image/jpeg"
     elif mime_.find(".gif") != -1:
         return "image/gif"
