@@ -1,10 +1,14 @@
-input_ = input("Greeting: ")
+def main():
+    salutate = input("Greeting: ")
 
-pos = input_.lower().find("h")
+    salutate = salutate.lower()
 
-if input_.lower().find("hello") == 0:
-    print("$0")
-elif input_.lower().find("h") == 0:
-    print("$20")
-else:
-    print("$100")
+    if salutate.startswith("hello"):
+        print("$0")
+    elif salutate.startswith("h"):
+        print("$20")
+    else:
+        print("$100")
+
+if __name__ == "__main__":
+    main()
