@@ -1,5 +1,5 @@
 def main():
-    salutate = input("Greeting: ")
+    salutate: str = input("Greeting: ")
 
     salutate = salutate.lower()
 
@@ -7,7 +7,7 @@ def main():
         print("$0")
     elif salutate.startswith("h"):
         print("$20")
-    else:
+    elif salutate.strip() != "":
         print("$100")
 
 if __name__ == "__main__":
