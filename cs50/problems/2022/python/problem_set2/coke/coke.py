@@ -5,7 +5,8 @@ def main():
         print("Amount Due:", amount)
         v_: int = int(input("Insert Coin: "))
 
-        amount -= v_
+        if v_ == 25 or v_ == 10 or v_ == 5:
+            amount -= v_
     
     print("Change Owed:", abs(amount))
 
