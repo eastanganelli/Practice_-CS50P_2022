@@ -4,10 +4,10 @@ from decimal import Decimal
 fuel_lvl: dict[str, str] = { '0.0': "E", '0.25': "25%", '0.5': "50%", '0.75': "75%", '1.0': "F" }
 mask: str = "\d+(\.{1}\d+)"
 
-def main():
+def main() -> None:
     input_splitter()
 
-def input_splitter():
+def input_splitter() -> None:
     while True:
         try:
             x, y =  input("Fraction: ").split('/')
