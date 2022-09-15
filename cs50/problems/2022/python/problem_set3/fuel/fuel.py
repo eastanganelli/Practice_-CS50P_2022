@@ -1,7 +1,7 @@
 import re
 from decimal import Decimal
+import math
 
-fuel_lvl: dict[str, str] = { '0.0': "E", '0.25': "25%", '0.5': "50%", '0.75': "75%", '1.0': "F" }
 mask: str = "\d+(\.{1}\d+)"
 
 def main() -> None:
@@ -14,15 +14,28 @@ def input_splitter() -> None:
 
             if(re.match(mask, x) is not None and re.match(mask, y) is not None):
                 raise ValueError
-            
-            if(int(x) < 5 and (int(y) == 2 or int(y) == 4)):
-                print(fuel_lvl[str(int(x)/int(y))])
-                break
+
+            value_: int = int(int(x)/int(y)*100)
+
+            if ( int(x)/int(y)*100 - int(int(x)/int(y)*100) ) > 0.5:
+                value_ = math.ceil(int(x)/int(y)*100)
+
+            if value_ > 100:
+                raise ValueError
 
         except ValueError:
             pass
         except ZeroDivisionError:
             pass
+        else:
+            if value_ > 95:
+                print("F")
+            elif value_ < 5:
+                print("E")
+            else:
+                print(f"{value_}%")
+
+            return
 
 if __name__ == "__main__":
     main()
