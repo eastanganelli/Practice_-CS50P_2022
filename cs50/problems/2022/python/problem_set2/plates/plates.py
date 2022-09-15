@@ -3,6 +3,7 @@ import re
 regex_plates: str = [
     "^[a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][1-9][0-9]$",
     "^[a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][1-9]$",
+    "^[a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z]$",
     "^[a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z]$",
     "^[a-zA-Z][a-zA-Z][a-zA-Z][1-9][0-9][0-9]$",
     "^[a-zA-Z][a-zA-Z][a-zA-Z][1-9][0-9]$",

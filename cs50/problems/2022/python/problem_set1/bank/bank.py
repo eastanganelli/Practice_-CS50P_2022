@@ -1,7 +1,7 @@
 def main():
     salutate = input("Greeting: ")
 
-    salutate = salutate.lower()
+    salutate = salutate.lower().strip()
 
     if salutate.startswith("hello"):
         print("$0")

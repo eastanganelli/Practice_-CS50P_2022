@@ -26,7 +26,7 @@ def main() -> None:
 def read_input() -> Tuple[str, str, str]:
     while True:
         try:
-            input_str: str = input("Date: ")
+            input_str: str = input("Date: ").strip()
 
             if (re.match(regex_MMddyyyy, input_str) is not None):
                 ## December 12, 2022
@@ -43,9 +43,9 @@ def read_input() -> Tuple[str, str, str]:
             return year_, month_, day_
 
 def date_formater(year_: str, month_: str, day_: str) -> None:
-    month_ = ("0" + month_) if (int(month_) < 10 ) else None
-    day_   = ("0" + day_)   if (int(day_)   < 10 ) else None
-    
+    month_ = ("0" + month_) if (int(month_) < 10 ) else month_
+    day_   = ("0" + day_)   if (int(day_)   < 10 ) else day_
+
     ## Output -> YYYY-MM-DD
     print(f"{year_}-{month_}-{day_}")
 

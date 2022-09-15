@@ -1,5 +1,5 @@
 def main():
-    mime_ = input("File name: ").lower()
+    mime_ = input("File name: ").lower().strip()
 
     if mime_.endswith(".png"):
         print("image/png")
