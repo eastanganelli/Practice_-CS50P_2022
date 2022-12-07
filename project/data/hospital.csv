@@ -1,0 +1,14 @@
+building,floor,department,assignedmedics
+A,0,Admissions,4
+A,1,Intensive Care Unit,8
+A,2,General Surgery,8
+A,3,Maternity,6
+A,4,Neonatal,5
+A,5,Oncology,6
+B,0,Human Resources,0
+B,1,General Services,13
+B,2,Burn Center,6
+C,0,Diagnostic Imaging,4
+C,1,Accident and emergency,15
+C,2,Neurology,5
+C,3,Medical Records,2
