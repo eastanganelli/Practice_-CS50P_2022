@@ -17,11 +17,12 @@ def read_hospital() -> dict[str, Building]:
                 
                 if building in _MyBuildings.keys():
                     _FloorAux = Floor(department, int(assignedmedics))
+                    _ListAux: list[Floor] = _MyBuildings[building].Floors
                     
-                    if _MyBuildings[building].CountFloors() > int(floor):
-                        _MyBuildings[building]._Floors.insert(int(floor), _FloorAux)
+                    if len(_ListAux) > int(floor):
+                        _MyBuildings[building].Floors.insert(int(floor), _FloorAux)
                     else:
-                        _MyBuildings[building]._Floors.append(_FloorAux)
+                        _MyBuildings[building].Floors.append(_FloorAux)
                     
                 else:
                     _FloorAux: Floor = Floor(department, int(assignedmedics))

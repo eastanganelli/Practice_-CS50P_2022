@@ -10,125 +10,114 @@
 """
 
 class Floor:
-    _Department: str
-    _AssignedMedics: int
-    _Supply: any
+    __Department: str
+    __AssignedMedics: int
+    __Supply: any
     
-    def __init__(self, _Department: str, _AssignedMedics: int):
-        self._AssignedMedics = _AssignedMedics
-        self._Department = _Department
+    def __init__(self, Department: str, AssignedMedics: int):
+        self.__AssignedMedics = AssignedMedics
+        self.__Department = Department
         
     """
     Getters and Setters    
     """
-    """ @property
-    def _Department(self) -> str:
-        return self._Department
+    @property
+    def Department(self) -> str:
+        return self.__Department
     
-    @_Department.setter
-    def _Department(self, _Department: str) -> None:
-        if _Department.count > 0:
-            self._Department = _Department
+    @Department.setter
+    def Department(self, Department: str) -> None:
+        if len(Department) > 0:
+            self.__Department = Department
             
     @property
-    def _AssignedMedics(self) -> int:
-        return self._AssignedMedics
+    def AssignedMedics(self) -> int:
+        return self.__AssignedMedics
     
-    @_AssignedMedics.setter
-    def _AssignedMedics(self, _AssignedMedics: int) -> None:
-        if _AssignedMedics.count > 0:
-            self._AssignedMedics = _AssignedMedics """
+    @AssignedMedics.setter
+    def AssignedMedics(self, AssignedMedics: int) -> None:
+        if AssignedMedics > 0:
+            self.__AssignedMedics = AssignedMedics
 
 class Building:
-    _Building: str
-    _Floors: list[Floor]
+    __Floors: list[Floor]
     
-    def __init__(self, _Floors: list[Floor]):
-        self._Floors = _Floors
+    def __init__(self, Floors: list[Floor]):
+        self.__Floors = Floors
         
     """
     Getters and Setters
     """
-    """ @property
-    def _Building(self) -> str:
-        return self._Building
-    
-    @_Building.setter
-    def _Building(self, _Building: str) -> None:
-        if _Building.count > 0:
-            self._Building = _Building
-    
     @property
-    def _Floors(self) -> list[Floor]:
-        return self._Floors
+    def Floors(self) -> list[Floor]:
+        return self.__Floors
 
-    @_Floors.setter
-    def _Floors(self, _Floors: list[Floor]) -> None:
-        if len(_Floors) > 0:
-            self._Floors = _Floors """
+    @Floors.setter
+    def Floors(self, Floors: list[Floor]) -> None:
+        if len(Floors) > 0:
+            self.__Floors = Floors
     
-    def CountFloors(self) -> int:
+    def Floors(self) -> int:
         return len(self._Floors)
 
 class Hospital:
-    _Name:   str
-    _Street: str
-    _Phone:  str
-    _Coordinates: tuple[int, int]
-    _Specialization: str
-    _Building: dict[str, Building]
+    __Name:   str
+    __Street: str
+    __Phone:  str
+    __Coordinates: tuple[int, int]
+    __Specialization: str
+    __Building: dict[str, Building]
     
-    def __init__(self, _Name: str, _Street: str, _Phone: str, _Coordinates: tuple[int, int], _Specialization: str):
-        self._Name = _Name
-        self._Street = _Street
-        self._Phone = _Street
-        self._Specialization = _Specialization
-        self._Coordinates = _Coordinates
+    def __init__(self, Name: str, Street: str, Phone: str, Coordinates: tuple[int, int], Specialization: str):
+        self.__Name = Name
+        self.__Street = Street
+        self.__Phone = Phone
+        self.__Specialization = Specialization
+        self.__Coordinates = Coordinates
     
     """
     Getters and Setters    
     """
     @property
-    def _Name(self):
-        return self._Name
+    def Name(self):
+        return self.__Name
     
-    @_Name.setter
-    def _Name(self, _Name: str):
-        if _Name.count > 0:
-            self._Name = _Name
+    @Name.setter
+    def Name(self, Name: str):
+        if len(Name) > 0:
+            self.__Name = Name
             
     @property
-    def _Street(self):
-        return self._Street
+    def Street(self):
+        return self.__Street
     
-    @_Street.setter
-    def _Street(self, _Street: str):
-        if _Street.count > 0:
-            self._Street = _Street
+    @Street.setter
+    def Street(self, Street: str):
+        if len(Street) > 0:
+            self.__Street = Street
     
     @property
-    def _Phone(self):
-        return self._Phone
+    def Phone(self):
+        return self.__Phone
     
-    @_Phone.setter
-    def _Phone(self, _Phone: str):
-        if _Phone.count > 0:
-            self._Phone = _Phone
+    @Phone.setter
+    def Phone(self, Phone: str):
+        if len(Phone) > 0:
+            self.__Phone = Phone
             
     @property
-    def _Specialization(self):
-        return self._Specialization
+    def Specialization(self):
+        return self.__Specialization
     
-    @_Specialization.setter
-    def _Specialization(self, _Specialization: str):
-        if _Specialization.count > 0:
-            self._Specialization = _Specialization
+    @Specialization.setter
+    def Specialization(self, Specialization: str):
+        if len(Specialization) > 0:
+            self.__Specialization = Specialization
     
     @property
-    def _Coordinates(self):
+    def Coordinates(self):
         return self._Coordinates
     
-    @_Coordinates.setter
-    def _Coordinates(self, _Coordinates: tuple[int, int]):
-        if _Coordinates.count > 0:
-            self._Coordinates = _Coordinates
+    @Coordinates.setter
+    def Coordinates(self, Coordinates: tuple[int, int]):
+        self.__Coordinates = Coordinates
