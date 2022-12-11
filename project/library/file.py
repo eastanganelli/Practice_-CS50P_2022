@@ -4,36 +4,29 @@ Reading and writing CSV files
 
 from library.hospital import Building, Floor
 
-def read_hospital() -> dict[str, Building]:
+class file_hospital:
     
-    with open(".\data\hospital.csv", "r") as file:
-        _MyBuildings: dict[str, Building] = { }
-        _Flag: bool = False
-        
-        for line in file:
-            building, floor, department, assignedmedics = line.rstrip().split(",")
+    def read_hospital() -> dict[str, Building]:
+    
+        with open(".\data\hospital.csv", "r") as file:
+            _MyBuilding: dict[str, Floor, dict[str, int]] = dict()
+            _Flag: bool = False
             
-            if _Flag:
+            for line in file:
+                building, floor, department, assignedmedics = line.rstrip().split(",")
                 
-                if building in _MyBuildings.keys():
-                    _FloorAux = Floor(department, int(assignedmedics))
-                    _ListAux: list[Floor] = _MyBuildings[building].Floors
+                if _Flag:
+                    _idFloor: str = str(building) + str(floor)
                     
-                    if len(_ListAux) > int(floor):
-                        _MyBuildings[building].Floors.insert(int(floor), _FloorAux)
-                    else:
-                        _MyBuildings[building].Floors.append(_FloorAux)
-                    
-                else:
-                    _FloorAux: Floor = Floor(department, int(assignedmedics))
-                    _ListAux: list[Floor] = [ ]
-                    
-                    _ListAux.append(_FloorAux)
+                    if _idFloor not in _MyBuilding:
+                        _MyBuilding.update({ _idFloor, Floor(department, assignedmedics), dict() })
                         
-                    _BuildingAux: Building = Building(_ListAux)
-                        
-                    _MyBuildings.update( { building: _BuildingAux } )
-                    
-            else: _Flag = True
+                else: _Flag = True
 
-    return _MyBuildings
+        return _MyBuilding
+
+    def file_graph():
+        pass
+
+if __name__ == "__main__":
+    exit(-1)
