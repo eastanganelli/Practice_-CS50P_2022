@@ -9,8 +9,8 @@ def test_function() -> None:
 
 def test_custom_function() -> None:
     """ Function custom Testing """
-    # with pytest.raises(ValueError):
-    assert function_custom() == 1
+    with pytest.raises(ValueError):
+        assert function_custom() == 1
         
 def test_custom_stack() -> None:
     """ Testing Stack """
