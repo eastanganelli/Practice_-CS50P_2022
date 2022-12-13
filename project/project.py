@@ -3,9 +3,6 @@ from library.stack import Stack
 from library.file  import read_hospital, file_graph
 from library.hospital import Hospital, Floor
 
-import networkx as nx
-import matplotlib.pyplot as plt
-
 def main() -> None:
     """ Main """
     """ _AuxHospital: dict[str, Floor, dict[str, int]] = read_hospital()

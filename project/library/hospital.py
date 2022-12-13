@@ -44,14 +44,12 @@ class Hospital:
     __Street: str
     __Phone:  str
     __Coordinates: tuple[int, int]
-    __Specialization: str
-    __Building: dict[str, Floor, dict[str, int]]
+    __Building: dict[str, Floor, list(str, int)]
     
-    def __init__(self, Name: str, Street: str, Phone: str, Coordinates: tuple[int, int], Specialization: str):
+    def __init__(self, Name: str, Street: str, Phone: str, Coordinates: tuple[int, int]):
         self.__Name = Name
         self.__Street = Street
         self.__Phone = Phone
-        self.__Specialization = Specialization
         self.__Coordinates = Coordinates
     
     def addFloor(self, fromFloor: str, toFloor: str, cost: int) -> None:
@@ -62,6 +60,13 @@ class Hospital:
             self.__Building[toFloor] = []
             
         self.__Building[fromFloor].append(( toFloor, int(cost) ))
+    
+    
+    def AddToGraph(self, ):
+        
+    
+    def RemoveFromGraph():
+        pass
     
     """
     Getters and Setters    
@@ -92,15 +97,6 @@ class Hospital:
     def Phone(self, Phone: str) -> None:
         if len(Phone) > 0:
             self.__Phone = Phone
-            
-    @property
-    def Specialization(self) -> str:
-        return self.__Specialization
-    
-    @Specialization.setter
-    def Specialization(self, Specialization: str) -> None:
-        if len(Specialization) > 0:
-            self.__Specialization = Specialization
     
     @property
     def Coordinates(self) -> tuple[int, int]:
@@ -109,3 +105,15 @@ class Hospital:
     @Coordinates.setter
     def Coordinates(self, Coordinates: tuple[int, int]) -> None:
         self.__Coordinates = Coordinates
+        
+    @property
+    def Building(self) -> dict[str, Floor, list(str, int)]:
+        return self.__Building
+        
+    @Building.setter
+    def Building(self, Building: dict[str, Floor, list[str, int]]) -> None:
+        self.__Building = Building
+        
+    @Building.__str__
+    def Building(self) -> str:
+        return "None Text"

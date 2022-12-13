@@ -1,0 +1,131 @@
+{
+    "name": "San Jose St. Bonaventure Hospital",
+    "street": "13450 104 Ave, Surrey, BC V3T 1V8, Canadá",
+    "phone": "+8 148-195-4046",
+    "coordinates": {
+        "x": 49.1896654,
+        "y": -122.8476731
+    },
+    "buildings": [
+        {
+            "block": "A",
+            "floors": [
+                {
+                    "floor": 0,
+                    "code": "ADD",
+                    "deparment": "Admissions",
+                    "medics_assigned": 4,
+                    "connected_to": {
+
+                    }
+                },{
+                    "floor": 1,
+                    "deparment": "Intensive Care Unit",
+                    "code": "ICU",
+                    "medics_assigned": 8,
+                    "connected_to": {
+                        
+                    }
+                },{
+                    "floor": 2,
+                    "deparment": "General Surgery",
+                    "code": "GS",
+                    "medics_assigned": 8,
+                    "connected_to": {
+                        
+                    }
+                },{
+                    "floor": 3,
+                    "deparment": "Maternity",
+                    "code": "MA",
+                    "medics_assigned": 6,
+                    "connected_to": {
+                        
+                    }
+                },{
+                    "floor": 4,
+                    "deparment": "Neonatal",
+                    "code": "NN",
+                    "medics_assigned": 5,
+                    "connected_to": {
+                        
+                    }
+                },{
+                    "floor": 5,
+                    "deparment": "Oncology",
+                    "code": "OL",
+                    "medics_assigned": 6,
+                    "connected_to": {
+                        
+                    }
+                }
+            ]
+        },{
+            "block": "B",
+            "floors": [
+                {
+                    "floor": 0,
+                    "code": "HR",
+                    "deparment": "Human Resources",
+                    "medics_assigned": 0,
+                    "connected_to": {
+
+                    }
+                },{
+                    "floor": 1,
+                    "deparment": "General Services",
+                    "code": "GSE",
+                    "medics_assigned": 13,
+                    "connected_to": {
+                        
+                    }
+                },{
+                    "floor": 2,
+                    "deparment": "Burn Center",
+                    "code": "BC",
+                    "medics_assigned": 6,
+                    "connected_to": {
+                        
+                    }
+                }
+            ]
+        },{
+            "block": "C",
+            "floors": [
+                {
+                    "floor": 0,
+                    "code": "DI",
+                    "deparment": "Diagnostic Imaging",
+                    "medics_assigned": 4,
+                    "connected_to": {
+
+                    }
+                },{
+                    "floor": 1,
+                    "deparment": "Accident and emergency",
+                    "code": "A&E",
+                    "medics_assigned": 15,
+                    "connected_to": {
+                        
+                    }
+                },{
+                    "floor": 2,
+                    "deparment": "Neurology",
+                    "code": "NL",
+                    "medics_assigned": 5,
+                    "connected_to": {
+                        
+                    }
+                },{
+                    "floor": 3,
+                    "deparment": "Medical Records",
+                    "code": "MMRR",
+                    "medics_assigned": 2,
+                    "connected_to": {
+                        
+                    }
+                }
+            ]
+        }
+    ]
+}
