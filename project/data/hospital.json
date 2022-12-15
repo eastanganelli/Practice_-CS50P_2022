@@ -18,10 +18,12 @@
                     "connected_to": [
                         {
                             "block": "A",
-                            "floor": 1
+                            "floor": 1,
+                            "cost": 4
                         },{
                             "block": "B",
-                            "floor": 0
+                            "floor": 0,
+                            "cost": 8
                         }
                     ]
                 },{
@@ -32,13 +34,16 @@
                     "connected_to": [
                         {
                             "block": "A",
-                            "floor": 0
+                            "floor": 0,
+                            "cost": 4
                         },{
                             "block": "A",
-                            "floor": 2
+                            "floor": 2,
+                            "cost": 2
                         },{
                             "block": "B",
-                            "floor": 1
+                            "floor": 1,
+                            "cost": 7
                         }
                     ]
                 },{
@@ -49,13 +54,16 @@
                     "connected_to": [
                         {
                             "block": "A",
-                            "floor": 1
+                            "floor": 1,
+                            "cost": 2
                         },{
                             "block": "A",
-                            "floor": 3
+                            "floor": 3,
+                            "cost": 3
                         },{
                             "block": "B",
-                            "floor": 2
+                            "floor": 2,
+                            "cost": 7
                         }
                     ]
                 },{
@@ -66,10 +74,12 @@
                     "connected_to": [
                         {
                             "block": "A",
-                            "floor": 2
+                            "floor": 2,
+                            "cost": 3
                         },{
                             "block": "A",
-                            "floor": 4
+                            "floor": 4,
+                            "cost": 1
                         }
                     ]
                 },{
@@ -80,10 +90,12 @@
                     "connected_to": [
                         {
                             "block": "A",
-                            "floor": 3
+                            "floor": 3,
+                            "cost": 1
                         },{
                             "block": "A",
-                            "floor": 5
+                            "floor": 5,
+                            "cost": 2
                         }
                     ]
                 },{
@@ -94,7 +106,8 @@
                     "connected_to": [
                         {
                             "block": "A",
-                            "floor": 4
+                            "floor": 4,
+                            "cost": 2
                         }
                     ]
                 }
@@ -110,13 +123,16 @@
                     "connected_to": [
                         {
                             "block": "A",
-                            "floor": 0
+                            "floor": 0,
+                            "cost": 8
                         },{
                             "block": "C",
-                            "floor": 0
+                            "floor": 0,
+                            "cost": 10
                         },{
                             "block": "B",
-                            "floor": 1
+                            "floor": 1,
+                            "cost": 3
                         }
                     ]
                 },{
@@ -127,16 +143,20 @@
                     "connected_to": [
                         {
                             "block": "A",
-                            "floor": 1
+                            "floor": 1,
+                            "cost": 7
                         },{
                             "block": "C",
-                            "floor": 1
+                            "floor": 1,
+                            "cost": 7
                         },{
                             "block": "B",
-                            "floor": 2
+                            "floor": 2,
+                            "cost": 2
                         },{
                             "block": "B",
-                            "floor": 0
+                            "floor": 0,
+                            "cost": 3
                         }
                     ]
                 },{
@@ -147,13 +167,16 @@
                     "connected_to": [
                         {
                             "block": "A",
-                            "floor": 2
+                            "floor": 2,
+                            "cost": 7
                         },{
                             "block": "C",
-                            "floor": 2
+                            "floor": 2,
+                            "cost": 6
                         },{
                             "block": "B",
-                            "floor": 1
+                            "floor": 1,
+                            "cost": 2
                         }
                     ]
                 }
@@ -169,10 +192,12 @@
                     "connected_to": [
                         {
                             "block": "C",
-                            "floor": 1
+                            "floor": 1,
+                            "cost": 4
                         },{
                             "block": "B",
-                            "floor": 0
+                            "floor": 0,
+                            "cost": 10
                         }
                     ]
                 },{
@@ -183,13 +208,16 @@
                     "connected_to": [
                         {
                             "block": "C",
-                            "floor": 2
+                            "floor": 2,
+                            "cost": 3
                         },{
                             "block":"C",
-                            "floor":0
+                            "floor":0,
+                            "cost": 4
                         },{
                             "block": "B",
-                            "floor": 1
+                            "floor": 1,
+                            "cost": 7
                         }
                     ]
                 },{
@@ -200,13 +228,16 @@
                     "connected_to": [
                         {
                             "block": "C",
-                            "floor": 1
+                            "floor": 1,
+                            "cost": 3
                         },{
                             "block": "C",
-                            "floor": 3
+                            "floor": 3,
+                            "cost": 5
                         },{
                             "block": "B",
-                            "floor": 2
+                            "floor": 2,
+                            "cost": 6
                         }
                     ]
                 },{
@@ -217,7 +248,8 @@
                     "connected_to": [
                         {
                             "block": "C",
-                            "floor": 2
+                            "floor": 2,
+                            "cost": 5
                         }
                     ]
                 }
