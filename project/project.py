@@ -1,6 +1,8 @@
+import json
+
 """ Libraries Import """
 from library.stack import Stack
-from library.file  import read_hospital, file_graph
+from library.file  import read_hospital
 from library.hospital import Hospital, Floor
 
 def main() -> None:
@@ -9,7 +11,8 @@ def main() -> None:
     _MyFloor: Floor = _AuxHospital["A2"]
     print(_MyFloor._Department == "General Surgery") """
     
-    file_graph()
+    with open(".\\data\\hospital.json", "r") as file:
+        data = json.load(file)
     
 
 def function_custom() -> any:

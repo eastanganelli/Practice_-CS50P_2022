@@ -1,13 +1,15 @@
 """ Buildings
   A
- ____
- |A5|        C
- |A4|   B  ____
- |A3| ____ |C3|
- |A2|-|B2|-|C2|
- |A1|-|B1|-|C1|
- |A0|-|B0|-|C0|
+ |--|
+ |A5|           C
+ |A4|    B     |--|
+ |A3|   |--|   |C3|
+ |A2| - |B2| - |C2|
+ |A1| - |B1| - |C1|
+ |A0| - |B0| - |C0|
 """
+
+import copy
 
 class Floor:
     __Department: str
@@ -18,9 +20,7 @@ class Floor:
         self.__AssignedMedics = AssignedMedics
         self.__Department = Department
         
-    """
-    Getters and Setters    
-    """
+    """ Getters and Setters """
     @property
     def Department(self) -> str:
         return self.__Department
@@ -43,31 +43,15 @@ class Hospital:
     __Name:   str
     __Street: str
     __Phone:  str
-    __Coordinates: tuple[int, int]
-    __Building: dict[str, Floor, list(str, int)]
+    __Coordinates: tuple[float, float]
+    __Building: dict[str, Floor, list[str, int]]
     
-    def __init__(self, Name: str, Street: str, Phone: str, Coordinates: tuple[int, int]):
+    def __init__(self, Name: str, Street: str, Phone: str, Coordinates: tuple[float, float]):
         self.__Name = Name
         self.__Street = Street
         self.__Phone = Phone
         self.__Coordinates = Coordinates
-    
-    def addFloor(self, fromFloor: str, toFloor: str, cost: int) -> None:
-        if fromFloor not in self.__Building:
-            self.__Building[fromFloor] = []
-            
-        if toFloor not in self.__Building:
-            self.__Building[toFloor] = []
-            
-        self.__Building[fromFloor].append(( toFloor, int(cost) ))
-    
-    
-    def AddToGraph(self, ):
-        
-    
-    def RemoveFromGraph():
-        pass
-    
+
     """
     Getters and Setters    
     """
@@ -99,21 +83,29 @@ class Hospital:
             self.__Phone = Phone
     
     @property
-    def Coordinates(self) -> tuple[int, int]:
+    def Coordinates(self) -> tuple[float, float]:
         return self._Coordinates
     
     @Coordinates.setter
-    def Coordinates(self, Coordinates: tuple[int, int]) -> None:
+    def Coordinates(self, Coordinates: tuple[float, float]) -> None:
         self.__Coordinates = Coordinates
-        
+
     @property
-    def Building(self) -> dict[str, Floor, list(str, int)]:
+    def Building(self) -> dict[str, Floor, list[str, int]]:
         return self.__Building
-        
+    
     @Building.setter
-    def Building(self, Building: dict[str, Floor, list[str, int]]) -> None:
-        self.__Building = Building
-        
-    @Building.__str__
-    def Building(self) -> str:
-        return "None Text"
+    def Building(self, _JSON: any) -> None:
+        _coordinates: tuple[float, float] = (float(_JSON["coordinates"]["x"]), float(_JSON["coordinates"]["y"]))
+        _Hospital: Hospital = Hospital(_JSON["name"], _JSON["street"],_JSON["phone"], _coordinates )
+
+        for _Block in _JSON["buildings"]:
+            for _Floor in _Block["floors"]:
+                _idFloor: str = _Block["block"] + str(_Floor["floor"])
+
+                if _idFloor not in self.__Building:
+                    self.__Building[_idFloor] = [ ]
+
+                    for _connected in _Floor["connected_to"]:
+                        _idConnected: str = _connected["block"] + str(_connected["floor"])
+                        self.__Building[_idFloor].append({ _idConnected, int(_connected["cost"]) })

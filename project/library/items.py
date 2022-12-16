@@ -1,4 +1,4 @@
-class items:
+class Supply:
     _ProductName: str
     _Price: float
     _Count: int
@@ -6,20 +6,18 @@ class items:
     def __init__(self) -> None:
         pass
     
-class medication(items):
-    _MinDose: int
-    _MaxDose: int
-    
+class ProcedureEquipement(Supply):
     def __init__(self) -> None:
         super().__init__()
     
-class instruments(items):
+class EmergencyEquipment(Supply):
     def __init__(self) -> None:
         super().__init__()
     
-class badge(items):
-    _BadgeType: str
-    
+class ProtectiveEquipement(Supply):
     def __init__(self) -> None:
         super().__init__()
-        
+
+class BasicDiagnosticEquipment(Supply):
+    def __init__(self) -> None:
+        super().__init__()
