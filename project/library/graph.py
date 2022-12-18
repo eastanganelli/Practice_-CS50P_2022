@@ -32,6 +32,6 @@ class Graph:
 
         colors = [node[1]['color'] for node in G.nodes(data=True)]
 
-        nx.draw(G, node_color=colors, with_labels=True, font_color='white')
+        nx.draw(G, node_color = colors, with_labels = True, font_color = 'white')
 
         plt.show()

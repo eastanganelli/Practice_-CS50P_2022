@@ -9,12 +9,10 @@
  |A0| - |B0| - |C0|
 """
 
-import copy
-
 class Floor:
-    __Department: str
-    __AssignedMedics: int
-    __Supply: any
+    __Department     : str
+    __AssignedMedics : int
+    __Supply         : any
     
     def __init__(self, Department: str, AssignedMedics: int):
         self.__AssignedMedics = AssignedMedics
@@ -40,11 +38,11 @@ class Floor:
             self.__AssignedMedics = AssignedMedics
 
 class Hospital:
-    __Name:   str
-    __Street: str
-    __Phone:  str
-    __Coordinates: tuple[float, float]
-    __Building: dict[str, Floor, list[str, int]]
+    __Name        : str
+    __Street      : str
+    __Phone       : str
+    __Coordinates : tuple[float, float]
+    __Building    : dict[str, Floor, list[str, int]]
     
     def __init__(self, Name: str, Street: str, Phone: str, Coordinates: tuple[float, float]):
         self.__Name = Name
@@ -109,3 +107,6 @@ class Hospital:
                     for _connected in _Floor["connected_to"]:
                         _idConnected: str = _connected["block"] + str(_connected["floor"])
                         self.__Building[_idFloor].append({ _idConnected, int(_connected["cost"]) })
+
+    def generateGraph(self):
+        pass

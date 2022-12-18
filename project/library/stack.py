@@ -1,14 +1,14 @@
 class Node:
-    _Value: any
-    _Next: any
+    _Value : any
+    _Next  : any
     
     def __init__(self, _Value: any) -> None:
         self._Value = _Value
         self._Next = None
         
 class Stack:
-    _Head: any
-    _Size: int
+    _Head : any
+    _Size : int
     
     def __init__(self) -> None:
         self._Head = None

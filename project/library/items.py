@@ -1,7 +1,7 @@
 class Supply:
-    _ProductName: str
-    _Price: float
-    _Count: int
+    _ProductName : str
+    _Price       : float
+    _Count       : int
     
     def __init__(self) -> None:
         pass
