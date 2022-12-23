@@ -1,23 +1,22 @@
-import json
+import sys
+from library.supply import Supply, read_supply_list, prices_to_table
 
-""" Libraries Import """
-from library.stack import Stack
-from library.file  import read_hospital
-from library.hospital import Hospital, Floor
+base_path: str = ".\\data\\"
 
 def main() -> None:
-    """ Main """
-    """ _AuxHospital: dict[str, Floor, dict[str, int]] = read_hospital()
-    _MyFloor: Floor = _AuxHospital["A2"]
-    print(_MyFloor._Department == "General Surgery") """
-    
-    with open(".\\data\\hospital.json", "r") as file:
-        data = json.load(file)
-    
+    SupplyPriceList: list[Supply] = list()
 
-def function_custom() -> any:
-    """ Custom Function """
-    return 1
+    init_supply()
+    
+    
+def init_supply(file_name: str = "pricelist.csv") -> list[Supply]:
+    try:
+        path: str = base_path + file_name
+        with open(path, "r") as file:
+            SupplyPriceList = read_supply_list(file)
+            prices_to_table(SupplyPriceList)
+    except FileNotFoundError:
+        sys.exit("File not Found, program can´t continue...")
 
 if __name__ == "__main__":
     main()
