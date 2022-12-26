@@ -58,3 +58,13 @@ class Hospital:
             txt += f"\n|-{department}:\n{self.__Departments[department]}"
         
         return txt
+
+def read_hopsital(HospitalFile: any) -> any:
+    priceList: dict[str, Department] = dict()
+
+    dummy: str = None
+
+    for line in HospitalFile:
+        if dummy is None:
+            dummy = line
+        else:
