@@ -1,9 +1,9 @@
 from tabulate import tabulate
+from library.exceptions import ProductException
 
 class Supply:
-    __Name  : str
-    __Price : int
-
+    
+    
     def __init__(self, Name: str, Price: int):
         if not Name:
             raise ValueError
@@ -33,6 +33,24 @@ class Supply:
     def __str__(self) -> str:
         return f"{self.__Name} : {self.__Price}"
 
+    def buy_product(self, amount: int) -> int:
+        if not amount:
+            raise ValueError
+
+        return self.__Price * amount
+
+    def sell_product(self, amount: int) -> int:
+        if not amount:
+            raise ValueError
+
+        return self.__Price * amount
+
+    def buy_product(self, actual_amount: int) -> int:
+        if actual_amount < 1:
+            raise ProductException(actual_amount)
+        
+
+
 def read_supply_list(SupplyFile: any) -> list[str, int]:
     priceList: list[Supply] = list()
 
@@ -51,10 +69,10 @@ def read_supply_list(SupplyFile: any) -> list[str, int]:
 
     return priceList
 
-def prices_to_table(list_: list[Supply]) -> any:
+def prices_to_table(list_: list[Supply]) -> None:
     aux_list: list[list[str, int]] = list()
 
     for myPrice in list_:
         aux_list.append( [ myPrice.Name, myPrice.Price ] )
 
-    return tabulate(aux_list, headers=["Product", "Price"], tablefmt="grid")
+    print(tabulate(aux_list, headers=["Product", "Price"], tablefmt="grid"))

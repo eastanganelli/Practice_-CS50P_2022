@@ -3,8 +3,7 @@ import regex
 phone_pattern: str = "^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$"
 
 class Department:
-    __Supplies : dict[str, int]
-
+    
     def __init__(self) -> None:
         self.__Supplies = dict()
 
@@ -32,10 +31,6 @@ class Department:
         return SuppliesData
 
 class Hospital:
-    __Name        : str
-    __Street      : str
-    __Phone       : str
-    __Departments : dict[str, Department]
 
     def __init__(self, Name: str, Street: str, Phone: str) -> None:
         if not Name:
@@ -68,3 +63,4 @@ def read_hopsital(HospitalFile: any) -> any:
         if dummy is None:
             dummy = line
         else:
+            ...
