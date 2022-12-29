@@ -1,8 +1,9 @@
-from tabulate import tabulate
-from library.exceptions import ProductException
+from tabulate           import tabulate
+from library.exceptions import SupplyInvalidException, SupplyInStockException
 
 class Supply:
-    
+    MAX_: int = 25
+    MIN_: int = 5
     
     def __init__(self, Name: str, Price: int):
         if not Name:
@@ -33,46 +34,42 @@ class Supply:
     def __str__(self) -> str:
         return f"{self.__Name} : {self.__Price}"
 
-    def buy_product(self, amount: int) -> int:
-        if not amount:
-            raise ValueError
+    @classmethod
+    def buy_product(price_list: list[any], MySupply: tuple[str, int]) -> tuple[int, int]:
+        if 0 < MySupply[1]:
+            raise SupplyInvalidException(MySupply[1])
+        elif MySupply[1] >= Supply.MIN_:
+            raise SupplyInStockException(MySupply[0])
 
-        return self.__Price * amount
+        price: int = [product for product in price_list if product.Name == MySupply[0]]
+        toBuy: int = Supply.MAX_ - MySupply[1]
 
-    def sell_product(self, amount: int) -> int:
-        if not amount:
-            raise ValueError
+        return toBuy, toBuy * price
 
-        return self.__Price * amount
+    @classmethod
+    def read_supply_list(SupplyFile: any) -> list[str, int]:
+        priceList: list[Supply] = list()
 
-    def buy_product(self, actual_amount: int) -> int:
-        if actual_amount < 1:
-            raise ProductException(actual_amount)
-        
+        dummy: str = None
 
-
-def read_supply_list(SupplyFile: any) -> list[str, int]:
-    priceList: list[Supply] = list()
-
-    dummy: str = None
-
-    for line in SupplyFile:
-        if dummy is None:
-            dummy = line
-        else:
-            values = line.rstrip().split(";")
-
-            if int(values[1]) > 0:
-                priceList.append( Supply(str(values[0]), int(values[1])) )
+        for line in SupplyFile:
+            if dummy is None:
+                dummy = line
             else:
-                raise ValueError
+                values = line.rstrip().split(";")
 
-    return priceList
+                if int(values[1]) > 0:
+                    priceList.append( Supply(str(values[0]), int(values[1])) )
+                else:
+                    raise ValueError
 
-def prices_to_table(list_: list[Supply]) -> None:
-    aux_list: list[list[str, int]] = list()
+        return priceList
 
-    for myPrice in list_:
-        aux_list.append( [ myPrice.Name, myPrice.Price ] )
+    @classmethod
+    def prices_to_table(list_: list[Supply]) -> None:
+        aux_list: list[list[str, int]] = list()
 
-    print(tabulate(aux_list, headers=["Product", "Price"], tablefmt="grid"))
+        for myPrice in list_:
+            aux_list.append( [ myPrice.Name, myPrice.Price ] )
+
+        print(tabulate(aux_list, headers=["Product", "Price"], tablefmt="grid"))
