@@ -2,8 +2,9 @@ import signal
 import readchar
 import sys
 import json
+from os                 import name, system
 
-from library.supply     import Supply
+from library.supply     import Supply, prices_to_table
 from library.hospital   import Hospital
 from library.exceptions import SupplyInStockException, SupplyInvalidException
 
@@ -29,6 +30,7 @@ signal.signal(signal.SIGINT, handler)
 
 MyHospital: Hospital = None
 SupplyPriceList: list[Supply] = None
+options: list[str] = ["1 - Check Departments supplies", "2 - Resupply Departments", "3 - Check Supplies Prices"]
 
 def main() -> None:
     """
@@ -37,15 +39,13 @@ def main() -> None:
     MyHospital = init_hospital()
     SupplyPriceList = init_supply()
 
-    while True:
-        pass
+    menu()
     
 def init_supply() -> list[Supply]:
     try:
         path: str = base_path + _files["pricelist"]
         with open(path, "r") as file:
             SupplyPriceList = Supply.read_supply_list(file)
-            Supply.prices_to_table(SupplyPriceList)
     except FileNotFoundError:
         sys.exit(f'File {_files["pricelist"]} not Found, program can´t continue...')
     else:
@@ -53,15 +53,10 @@ def init_supply() -> list[Supply]:
 
 def init_hospital() -> Hospital:
     MyHospital: Hospital = None
-    
-    path: str = None
-    try:
-        path = base_path + _files['departments']
-        with open(path, "r") as file:
-            pass
-    except FileNotFoundError:
-        sys.exit(f"File {_files['departments']} not Found...\nProgram will close")
-    
+    path: str = None    
+
+    """ Load Hospital information into memory """
+
     try:
         path = base_path + _files['hospital']
         with open(path, "r") as file:
@@ -86,7 +81,39 @@ def init_hospital() -> Hospital:
         with open(path, "w") as outfile:
             json.dump(HospitalInfo, outfile)
 
-    return Hospital    
+    """ Load Departments into memory """
+    try:
+        path = base_path + _files['departments']
+        with open(path, "r") as file:
+            pass
+    except FileNotFoundError:
+        sys.exit(f"File {_files['departments']} not Found...\nProgram will close")
+
+    return Hospital
+
+def menu():
+    while True:
+        for val_ in options:
+            print(val_)
+        
+        selop = input("Select option >> ")
+        clear()
+        
+        match(selop):
+            case "1":
+                pass
+            case "2":
+                pass
+            case "3":
+                prices_to_table(SupplyPriceList)
+            case _:
+                print("Wrong option")
+
+def clear():
+    if name == "nt":
+        _ = system("cls")
+    else:
+        _ = system("clear")
 
 if __name__ == "__main__":
     main()

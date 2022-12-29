@@ -47,7 +47,7 @@ class Supply:
         return toBuy, toBuy * price
 
     @classmethod
-    def read_supply_list(SupplyFile: any) -> list[str, int]:
+    def read_supply_list(cls, SupplyFile: any) -> list[str, int]:
         priceList: list[Supply] = list()
 
         dummy: str = None
@@ -65,11 +65,10 @@ class Supply:
 
         return priceList
 
-    @classmethod
-    def prices_to_table(list_: list[Supply]) -> None:
-        aux_list: list[list[str, int]] = list()
+def prices_to_table(prices: list[Supply]) -> None:
+    aux_list: list[list[str, int]] = list()
 
-        for myPrice in list_:
-            aux_list.append( [ myPrice.Name, myPrice.Price ] )
+    for myPrice in prices:
+        aux_list.append( [ myPrice.Name, myPrice.Price ] )
 
-        print(tabulate(aux_list, headers=["Product", "Price"], tablefmt="grid"))
+    print(tabulate(aux_list, headers=["Product", "Price"], tablefmt="grid"))
