@@ -14,6 +14,7 @@ _files: dict[str, str] = {
     "hospital": "hospital.json",
     "departments": "departments.csv"
 }
+options: list[str] = ["1 - Check Departments supplies", "2 - Resupply Departments", "3 - Check Supplies Prices"]
 
 def handler(signum, frame):
     msg: str = "Ctrl-c was pressed. Do you really want to exit? y/n"
@@ -21,16 +22,11 @@ def handler(signum, frame):
     response = readchar.readchar()
     if response == "y":
         exit()
-    else:
-        print("", end="\r", flush=True)
-        print(" " * len(msg), end="", flush=True) # clear the printed line
-        print("    ", end="\r", flush=True)
 
 signal.signal(signal.SIGINT, handler)
 
 MyHospital: Hospital = None
 SupplyPriceList: list[Supply] = None
-options: list[str] = ["1 - Check Departments supplies", "2 - Resupply Departments", "3 - Check Supplies Prices"]
 
 def main() -> None:
     """
@@ -39,7 +35,15 @@ def main() -> None:
     MyHospital = init_hospital()
     SupplyPriceList = init_supply()
 
-    menu()
+    while True:
+        try:
+            for val_ in options:
+                print(val_)
+        
+            menu(input("Select option >> "))
+        except EOFError:
+            clear()
+            pass
     
 def init_supply() -> list[Supply]:
     try:
@@ -91,23 +95,18 @@ def init_hospital() -> Hospital:
 
     return Hospital
 
-def menu():
-    while True:
-        for val_ in options:
-            print(val_)
-        
-        selop = input("Select option >> ")
-        clear()
-        
-        match(selop):
-            case "1":
-                pass
-            case "2":
-                pass
-            case "3":
-                prices_to_table(SupplyPriceList)
-            case _:
-                print("Wrong option")
+def menu(selop: str):
+    clear()
+    
+    match(selop):
+        case "1":
+            pass
+        case "2":
+            pass
+        case "3":
+            prices_to_table(SupplyPriceList)
+        case _:
+            print("Wrong option")
 
 def clear():
     if name == "nt":

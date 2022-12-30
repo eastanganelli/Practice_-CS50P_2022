@@ -34,7 +34,7 @@ class Supply:
     def __str__(self) -> str:
         return f"{self.__Name} : {self.__Price}"
 
-    @classmethod
+    @staticmethod
     def buy_product(price_list: list[any], MySupply: tuple[str, int]) -> tuple[int, int]:
         if 0 < MySupply[1]:
             raise SupplyInvalidException(MySupply[1])
@@ -46,8 +46,8 @@ class Supply:
 
         return toBuy, toBuy * price
 
-    @classmethod
-    def read_supply_list(cls, SupplyFile: any) -> list[str, int]:
+    @staticmethod
+    def read_supply_list(SupplyFile: any) -> list[str, int]:
         priceList: list[Supply] = list()
 
         dummy: str = None
@@ -65,10 +65,11 @@ class Supply:
 
         return priceList
 
-def prices_to_table(prices: list[Supply]) -> None:
-    aux_list: list[list[str, int]] = list()
+    @staticmethod
+    def prices_to_table(prices: list[Supply]) -> None:
+        aux_list: list[list[str, int]] = list()
 
-    for myPrice in prices:
-        aux_list.append( [ myPrice.Name, myPrice.Price ] )
+        for myPrice in prices:
+            aux_list.append( [ myPrice.Name, myPrice.Price ] )
 
-    print(tabulate(aux_list, headers=["Product", "Price"], tablefmt="grid"))
+        print(tabulate(aux_list, headers=["Product", "Price"], tablefmt="grid"))

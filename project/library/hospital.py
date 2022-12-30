@@ -54,13 +54,14 @@ class Hospital:
         
         return txt
 
-def read_hopsital(HospitalFile: any) -> any:
-    priceList: dict[str, Department] = dict()
+    @staticmethod
+    def read_hopsital(HospitalFile: any) -> any:
+        priceList: dict[str, Department] = dict()
 
-    dummy: str = None
+        dummy: str = None
 
-    for line in HospitalFile:
-        if dummy is None:
-            dummy = line
-        else:
-            ...
+        for line in HospitalFile:
+            if dummy is None:
+                dummy = line
+            else:
+                ...
